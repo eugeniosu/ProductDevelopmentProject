@@ -25,8 +25,8 @@ class Field(models.Model):
 
     def get_name(self):
         """only for testing purposes"""
-        return 'name: ' + self.name + ', enumValues: ' + self.enumValues
-        + ', type: ' + self.get_type_display()
+        return ('name: ' + self.name + ', enumValues: ' + self.enumValues
+                + ', type: ' + self.get_type_display())
 
 
 class Risk_Type(models.Model):

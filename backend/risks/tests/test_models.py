@@ -1,3 +1,4 @@
+from django.test import TestCase
 from risks.models import Field, Risk_Type, Risk, Field_Risk
 
 
