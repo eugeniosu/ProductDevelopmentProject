@@ -1,0 +1,26 @@
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+}
+.nav-item{
+  padding:1px;
+  margin-left: 5px;
+}
+.list-horizontal li {
+	display:inline-block;
+}
+.list-horizontal li:before {
+	content: '\00a0\2022\00a0\00a0';
+	color:#999;
+	color:rgba(0,0,0,0.5);
+	font-size:11px;
+}
+.list-horizontal li:first-child:before {
+	content: '';
+}
+.aform{
+  margin-left:  auto;
+  width: 60%;
+}
