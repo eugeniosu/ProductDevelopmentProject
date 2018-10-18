@@ -1,30 +1,53 @@
-# frontend
-
-> 
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+# Configure Environment 
+Create a virtualenviroment.
+```
+$ virtualenv env -p python3
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Install the requirements.
+```
+$ pip install -r requirements/production.txt
+```
+
+#  Initial Deployment
+Edit the file `zappa_settings.json` with the OutputValues from AWS resources.
+
+| `zappa_settings.json` | AWS OutputKey|
+| ------| ------ |
+| [s3_bucket] | ZappaS3Bucket |
+| [Subnet1] | PrivateSubnet1 |
+| [Subnet2] | PrivateSubnet2 |
+
+Do the initial deployment
+```
+$ zappa deploy prod
+```
+Zappa will automaticly create an AWS API gateway and will provide an URL that will  appear at the end of the script. Copy and save **just the domain** of this URL. It is required for the next step (API_GATEWAY).
+
+Edit the file `/ProductDevelopmentProject/settings/production.py` with the next values:
+
+[ALLOWED_HOSTS] = API_GATEWAY
+
+| `production.py` | AWS OutputKey| AWS Original Configuration|
+| ------| ------ | ------ |
+| [DBEndpoint] | DataBaseEndpoint |-|
+| [DBUsername] | - |DBUsername|
+| [DBPassword] | - |DBPassword|
+| [DbName] | - |DBName|
+
+Create new migrations based on the models.
+```
+$ zappa manage prod makemigrations
+```
+
+# Tests
+Run the test for both models and views
+```
+$ zappa manage prod tests
+```
+
+#  Final Deployment
+Just execute the next two commands and he backend configuration will be complete
+```
+$ zappa update prod
+$ zappa manage prod migrate
