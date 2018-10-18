@@ -1,6 +1,9 @@
-# FrontEnd
+FrontEnd
+===============================
 
-# Configuration
+Configuration
+----------
+
 Edit the config section in  `package.json` and replace the following value with right  AWS outputkey:
 
 
@@ -14,7 +17,9 @@ Modify the file `config/prod.env.js` with API_URL retrieved from the backend dep
 | [API] | API_URL |
 
 
-# Deployment
+Deployment
+----------
+
 install dependencies
 ```
 $ npm install

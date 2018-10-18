@@ -2,7 +2,8 @@ BackEnd
 ===============================
 At this stage, the infrastucture should created in AWS. We need to use the OutputKeys obtained by cloudformation script.
 
-# Configure Environment 
+Configure Environment 
+----------
 Create a virtualenviroment.
 ```
 $ virtualenv env -p python3
@@ -13,7 +14,8 @@ Install the requirements.
 $ pip install -r requirements/production.txt
 ```
 
-#  Initial Deployment
+Initial Deployment
+----------
 Edit the file `zappa_settings.json` with the OutputValues from AWS resources.
 
 | `zappa_settings.json` | AWS OutputKey|
@@ -47,14 +49,17 @@ Create new migrations based on the models.
 $ zappa manage prod makemigrations
 ```
 
-# Tests
+Tests
+----------
 Run tests for both models and views
 ```
 $ zappa manage prod tests
 ```
 
-#  Final Deployment
+Final Deployment
+----------
 Just execute the next two commands and he backend configuration will be complete
 ```
 $ zappa update prod
 $ zappa manage prod migrate
+```

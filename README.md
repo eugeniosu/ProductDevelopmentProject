@@ -5,7 +5,8 @@ ProductDevelopmentProject is a solution that allows insurance companies to defin
 It's composed of two main parts: backend and frontend.  they are independent each other and the integration is via REST API's. 
 
 
-# Technologies 
+Technologies 
+----------
 Backend:
 * [Django Rest] - Django REST framework is a powerful and flexible toolkit for building Web APIs.
 * [PostgreSQL] - PostgreSQL is a powerful, open source object-relational database system.
@@ -24,7 +25,9 @@ Frontend:
    [node.js]: <http://nodejs.org>
    [Vue.js]: <https://vuejs.org/>
 //TODO: list all tecs
-# Infrastructure Creation.
+
+Infrastructure Creation.
+----------
 This application runs on Amazon Web Services (AWS). Consequently, a CloudFormation yaml file is provided to generate all the resources needed.
 
 Edit cloudformation.yml file and set the next parameters:
@@ -49,3 +52,9 @@ All the resources needed in this project were generated in the previous process.
 ```
  $ aws cloudformation describe-stacks --stack-name ProductDevelopmentStack
 ```
+
+Next Steps
+----------
+The next steps must be done in the given order.
+1. [Deploy backend](https://github.com/eugeniosu/ProductDevelopmentProject/tree/master/backend#)
+2. [Deploy frontend](https://github.com/eugeniosu/ProductDevelopmentProject/tree/master/frontend)
