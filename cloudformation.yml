@@ -18,12 +18,12 @@ Parameters:
   DBUsername:
     Description: user for accessing the database
     Type: String
-    Default: [DbUsername]
+    Default: [DBUsername]
 
-  DPPassword:
+  DBPassword:
     Description: password for accessing the database
     Type: String
-    Default: [DbPassword]
+    Default: [DBPassword]
 
   VpcCIDR:
     Description: Please enter the IP range (CIDR notation) for this VPC
