@@ -1,8 +1,20 @@
-BackEnd
+Backend
 ===============================
-At this stage, the infrastucture should created in AWS. We need to use the OutputKeys obtained by cloudformation script.
+At this stage, the infrastructure and resources should be created in AWS. We need to use the OutputKeys obtained by cloudformation script.
 
 Make sure you are in `/backend` directory and  virtualenv is activated.
+
+Tests
+----------
+Since the database was created in a private subnet, it's not possible to run test against it. 
+We need to have a reachable database and configure a dev environment to run both model and view tests. 
+
+First task is to modify the file 'ProductDevelopmentProject/settings/production.py' with your own database. 
+
+Run Tests	
+```
+./manage.py test --settings=ProductDevelopmentProject.settings.development
+```
 
 Initial Deployment
 ----------
@@ -26,8 +38,10 @@ Do the initial deployment
 ```
 $ zappa deploy prod
 ```
-Zappa will automaticly create an AWS API gateway and will provide an URL that will  appear at the end of the script. Copy and save **just the domain** of this URL. It is required for the next step (API_GATEWAY).
+Zappa will automatically create an AWS API gateway and will provide an URL that will  appear at the end of the script. Copy and save **just the domain** of this URL. It is required for the next step (API_GATEWAY).
 
+Final Deployment
+----------
 
 Edit the file `ProductDevelopmentProject/settings/production.py` with the next values:
 
@@ -41,9 +55,8 @@ Edit the file `ProductDevelopmentProject/settings/production.py` with the next v
 | [DBName] | - |DBName|
 
 
-Final Deployment
-----------
-Just execute the next two commands and he backend configuration will be complete
+Just execute the next two commands, and the backend configuration will be complete
 ```
 $ zappa update prod
 $ zappa manage prod migrate
+```
