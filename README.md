@@ -2,7 +2,7 @@ ProductDevelopmentProject
 ==============================
 ProductDevelopmentProject is a solution that allows insurance companies to define their own custom model without having a rigid model. 
 
-It's composed of two main parts: backend and frontend.  they are independent each other and the integration is via REST API's. 
+It's composed of two main parts: backend and frontend. They are independent each other and ther integrated via REST API's. 
 
 
 Technologies 
@@ -26,35 +26,51 @@ Frontend:
    [Vue.js]: <https://vuejs.org/>
 //TODO: list all tecs
 
+
+Configure Environment 
+----------
+Create a virtualenviroment.
+```
+$ virtualenv env -p python3
+```
+Active the Environment
+```
+$ source env/bin/activate
+```
+
 Infrastructure Creation.
 ----------
 This application runs on Amazon Web Services (AWS). Consequently, a CloudFormation yaml file is provided to generate all the resources needed.
 
-Edit cloudformation.yml file and set the next parameters:
+Edit `cloudformation.yml` file and set the next parameters:
 * [EnvironmentName] -  An environment name that will be prefixed to resource names
-* [DbUsername] - User for accessing the database
-* [DbPassword] - Password for accessing the database 
+* [DBName] - 
+* [DBUsername] - User for accessing the database
+* [DBPassword] - Password for accessing the database 
 
 Install `aws-cli`:
 ```
- $ pip install aws-cli
+$ pip install awscli
 ```
-Configure `aws-cli`. The AWS CLI will prompt you for four pieces of information. AWS Access Key ID and AWS Secret Access Key are your account credentials.
+Configure `aws-cli`. The AWS CLI will prompt you for four pieces of information. AWS Access Key ID and AWS Secret Access Key are your account credentials. For this deployment we will be using `us-east-1` region.
 ```
- $ aws configure
+$ aws configure
 ```
 Execute the yaml file using `aws-cli`(This process is going to take several minutes to complete)
 ```
- $ aws cloudformation create-stack --stack-name ProductDevelopmentStack --template-body file://cloudformation.yml
+$ aws cloudformation create-stack --stack-name ProductDevelopmentStack --template-body file://cloudformation.yml
 ```
 
-All the resources needed in this project were generated in the previous process. Thus, check and save them in safe place.
+Getting AWS OutputKeys.
+----------
+All the resources needed to make this project run were generated in the previous step.
+Run the next command to find out OutputKeys and save them in a safe place.
 ```
- $ aws cloudformation describe-stacks --stack-name ProductDevelopmentStack
+$ aws cloudformation describe-stacks --stack-name ProductDevelopmentStack
 ```
 
 Next Steps
 ----------
 The next steps must be done in the given order.
-1. [Deploy backend](https://github.com/eugeniosu/ProductDevelopmentProject/tree/master/backend#)
+1. [Deploy backend](https://github.com/eugeniosu/ProductDevelopmentProject/tree/master/backend)
 2. [Deploy frontend](https://github.com/eugeniosu/ProductDevelopmentProject/tree/master/frontend)

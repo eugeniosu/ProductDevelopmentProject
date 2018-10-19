@@ -1,4 +1,3 @@
-# flake8: noqa
 from ProductDevelopmentProject.settings.common import *
 
 CORS_ORIGIN_ALLOW_ALL=True

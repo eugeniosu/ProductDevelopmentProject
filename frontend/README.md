@@ -1,5 +1,6 @@
 FrontEnd
 ===============================
+Make sure you are in `/frontend` directory.
 
 Configuration
 ----------

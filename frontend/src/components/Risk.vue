@@ -1,8 +1,8 @@
    <template>
 <div>
 <div class="row">
-  <div class="col-sm-6"><h4>Risks (numberOfRisks 3)</h4></div>
-  <div class="col-sm-6"><h2 class="text-right text-warning">Eugenio Suarez qqqsmmskksks.</h2></div>
+  <div class="col-sm-6"><h4>Risks</h4></div>
+  <div class="col-sm-6"><h2 class="text-right text-warning">Eugenio Suarez.</h2></div>
 </div>
 
 <router-link  to="/risk-create">

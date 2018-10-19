@@ -1,8 +1,8 @@
 <template>
 <div>
 <div class="row">
-  <div class="col-sm-6"><h4>Fields (numberOfFields 3)</h4></div>
-  <div class="col-sm-6"><h2 class="text-right text-warning">Eugenio Suarez qqqsmmskksks.</h2></div>
+  <div class="col-sm-6"><h4>Fields</h4></div>
+  <div class="col-sm-6"><h2 class="text-right text-warning">Eugenio Suarez.</h2></div>
 </div>
 
 <router-link to="/field-create">

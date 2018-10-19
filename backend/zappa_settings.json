@@ -5,10 +5,10 @@
         "profile_name": "default",
         "project_name": "productdevelopm",
         "runtime": "python3.6",
-        "s3_bucket": "keno-test-vpc-zappas3bucket-kmail7z02qiy",
+        "s3_bucket": "[s3_zappa]",
         "vpc_config" : {
-            "SubnetIds": ["subnet-026f81de119a15a1d", "subnet-073b6bfd66a4944e8"],
-            "SecurityGroupIds": [ "sg-0be60098199510197" ]
+            "SubnetIds": ["[Subnet1]", "[Subnet2]"],
+            "SecurityGroupIds": [ "[SecurityGroup]" ]
         },
     }
 }
