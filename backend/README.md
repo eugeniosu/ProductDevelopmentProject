@@ -42,18 +42,18 @@ Do the initial deployment
 ```
 $ zappa deploy prod
 ```
-Zappa will automatically create an AWS API gateway and will provide an URL that will  appear at the end of the script. Copy and save **just the domain** of this URL. It is required for the next step (API_GATEWAY).
+Zappa will automatically create an AWS API gateway and will provide an URL that will  appear at the end of the script. Copy and save this URL. It is required for the next step and for setting up the frontend. We will call it API_GATEWAY.
 
 Final Deployment
 ----------
 
 Edit the file `ProductDevelopmentProject/settings/production.py` with the next values:
 
-[ALLOWED_HOST] = API_GATEWAY
+[ALLOWED_HOST] = API_GATEWAY (**just the domain**)
 
 | `production.py` | AWS OutputKey| AWS Original Configuration|
 | ------| ------ | ------ |
-| [DBEndpoint] | DataBaseEndpoint |-|
+| [DBEndpoint] | DataBaseEndpoint() |-|
 | [DBUsername] | - |DBUsername|
 | [DBPassword] | - |DBPassword|
 | [DBName] | - |DBName|

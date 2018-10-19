@@ -16,17 +16,17 @@ Edit the config section in  `package.json` and replace the following value with 
 ![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/packagejsonconf.jpg?raw=true)
 
 
-Modify the file `config/prod.env.js` with API_URL retrieved from the backend deployment
+Modify the file `config/prod.env.js` and put API_GATEWAY retrieved from the backend deployment
 
 | `package.json` | Zappa deployment|
 | ------| ------ |
-| [API] | API_URL |
+| [API] | API_GATEWAY |
 
 
 ![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/vueconf.jpg?raw=true)
 
 
-install dependencies
+Install dependencies
 ```
 $ npm install
 ```
@@ -46,7 +46,7 @@ Deploy the frontend
 $ npm run deploy-prod
 ```
 After this step, S3 bucket should be hosting the website.
-Finally, we have to go to the browswer and paste the url returned by  AWS OutputKey: `CloudfrontEndpoint`
+Finally, we have to go to the browser and paste the url returned by  AWS OutputKey: `CloudfrontEndpoint`
 
 ### Todos
  - Write MORE Tests

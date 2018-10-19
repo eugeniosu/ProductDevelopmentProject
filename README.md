@@ -1,8 +1,8 @@
 ProductDevelopmentProject
 ==============================
-ProductDevelopmentProject is a solution that allows insurance companies to define their own custom model without having a rigid model. 
+ProductDevelopmentProject is a solution that allows insurance companies to define their own custom model. 
 
-It's composed of two main parts: backend and frontend. They are independent each other and ther integrated via REST API's. 
+It's composed of two main parts: backend and frontend. They are independent each other and they integrated via REST API's. 
 
 
 Technologies 
@@ -66,7 +66,7 @@ $ aws cloudformation create-stack --stack-name ProductDevelopmentStack --templat
 Getting AWS OutputKeys.
 ----------
 All the resources needed to make this project run were generated in the previous step.
-Run the next command to find out OutputKeys and save them in a safe place.
+Run the next command to find out OutputValues and save them in a safe place.
 ```
 $ aws cloudformation describe-stacks --stack-name ProductDevelopmentStack
 ```
