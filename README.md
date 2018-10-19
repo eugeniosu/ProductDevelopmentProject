@@ -24,7 +24,6 @@ Frontend:
    [Zappa]: <https://github.com/Miserlou/Zappa/>
    [node.js]: <http://nodejs.org>
    [Vue.js]: <https://vuejs.org/>
-//TODO: list all tecs
 
 
 Configure Environment 
@@ -48,6 +47,9 @@ Edit `cloudformation.yml` file and set the next parameters:
 * [DBUsername] - User for accessing the database
 * [DBPassword] - Password for accessing the database 
 
+`cloudformation.yml` file should like this:
+![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/cloudformationconf.jpg?raw=true)
+
 Install `aws-cli`:
 ```
 $ pip install awscli
@@ -68,6 +70,8 @@ Run the next command to find out OutputKeys and save them in a safe place.
 ```
 $ aws cloudformation describe-stacks --stack-name ProductDevelopmentStack
 ```
+
+![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/outputKey.jpg?raw=true)
 
 Next Steps
 ----------

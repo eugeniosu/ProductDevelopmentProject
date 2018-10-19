@@ -24,7 +24,7 @@ Install the requirements.
 $ pip install -r requirements/requirementsProd.txt
 ```
 
-Edit the file `zappa_settings.json` with the OutputValues from AWS resources.
+Replace the key values in `zappa_settings.json` with the OutputValues from AWS resources.
 
 | `zappa_settings.json` | AWS OutputKey|
 | ------| ------ |
@@ -32,6 +32,10 @@ Edit the file `zappa_settings.json` with the OutputValues from AWS resources.
 | [Subnet1] | PrivateSubnet1 |
 | [Subnet2] | PrivateSubnet2 |
 | [SecurityGroup] | SecurityGroup |
+
+
+Make sure  `zappa_settings.json` file is similar to this one:
+![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/zappaconf.jpg?raw=true)
 
 
 Do the initial deployment
@@ -54,6 +58,9 @@ Edit the file `ProductDevelopmentProject/settings/production.py` with the next v
 | [DBPassword] | - |DBPassword|
 | [DBName] | - |DBName|
 
+
+This is how `production.py` should be:
+![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/databaseconf.jpg?raw=true)
 
 Just execute the next two commands, and the backend configuration will be complete
 ```
