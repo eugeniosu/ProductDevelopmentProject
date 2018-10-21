@@ -24,17 +24,17 @@
                           <label for="fieldName">Select Risk Type</label>
                           <select class="form-control" v-model="risk.risk_type" @change="onChange()" >
                             <option :value="null"></option>
-                            <option v-for="riskType in riskTypes" v-bind:value="riskType.url">{{ riskType.name }}</option>
+                            <option v-bind:key="riskType.pk" v-for="riskType in riskTypes" v-bind:value="riskType.url">{{ riskType.name }}</option>
                           </select>
                           <div class="row">
                             <div class="col"><hr></div>
                           </div>
-                          <div v-for="field in fields">
+                          <div v-for="field in fields" v-bind:key="field.pk">
                             <label for="fieldName">{{field.name}}</label>
                             <input v-bind:ref="field.pk" v-if="field.type === 'text'"  type="text" class="form-control">
                             <small v-if="field.type === 'text'" class="form-text text-muted">text</small>
                             <select v-bind:ref="field.pk" v-if="field.type === 'enum'" class="form-control" >
-                              <option v-for="optionValue in field.enumValues.split(',')" v-bind:value="optionValue" >{{ optionValue }}</option>
+                              <option v-for="optionValue in field.enumValues.split(',')" v-bind:key="optionValue" v-bind:value="optionValue" >{{ optionValue }}</option>
                             </select>
                             <small v-if="field.type === 'enum'" class="form-text text-muted">enum</small>
                             <input v-bind:ref="field.pk" v-if="field.type === 'date'" class="form-control" type="date">

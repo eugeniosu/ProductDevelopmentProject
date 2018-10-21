@@ -20,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="field in fields" @click="selectField(field)">
+    <tr v-for="field in fields" v-bind:key="field.pk" @click="selectField(field)">
       <th>{{field.pk}}</th>
       <th>{{field.name}}</th>
       <th>{{field.type}}</th>
@@ -37,7 +37,7 @@
 <div>
 <ul class="list-horizontal">
   <li><button class="btn btn-secondary" @click="getPreviousPage()">Previous</button></li>
-  <li v-for="page in pages">
+  <li v-for="page in pages" v-bind:key="page.pageNumber">
     <a class="btn btn-secondary" @click="getPage(page.link)">{{ page.pageNumber }}</a>
   </li>
   <li><button class="btn btn-secondary" @click="getNextPage()">Next</button></li>

@@ -44,8 +44,6 @@
 
 </template>
 
-</template>
-
 <script>
 /* eslint-disable */
 function sleep (time) {

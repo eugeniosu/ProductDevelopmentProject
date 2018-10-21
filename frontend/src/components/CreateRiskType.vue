@@ -24,7 +24,7 @@
                           <small id="riskHelp" class="form-text text-muted">Enter your attribute name</small>
                           <label for="exampleFormControlSelect1">Select Fields</label>
                           <select multiple class="form-control" v-model="risk.field" id="exampleFormControlSelect1">
-                            <option v-for="field in fields" v-bind:value="field.url" >{{ field.name }}</option>
+                            <option v-bind:key="field.pk" v-for="field in fields" v-bind:value="field.url" >{{ field.name }}</option>
                           </select>
                         </div>
                       </form>
@@ -34,8 +34,6 @@
                 </div>
             </div>
         </div>
-
-</template>
 
 </template>
 

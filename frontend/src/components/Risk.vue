@@ -21,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="risk in risks" @click="selectRisk(risk)">
+    <tr v-for="risk in risks" v-bind:key="risk.pk" @click="selectRisk(risk)">
       <th>{{risk.pk}}</th>
       <th>{{risk.name}}</th>
       <th>{{risk.description}}</th>
@@ -39,7 +39,7 @@
 <div>
 <ul class="list-horizontal">
   <li><button class="btn btn-secondary" @click="getPreviousPage()">Previous</button></li>
-  <li v-for="page in pages">
+  <li v-for="page in pages" v-bind:key="page.pageNumber">
     <a class="btn btn-secondary" @click="getPage(page.link)">{{ page.pageNumber }}</a>
   </li>
   <li><button class="btn btn-secondary" @click="getNextPage()">Next</button></li>
