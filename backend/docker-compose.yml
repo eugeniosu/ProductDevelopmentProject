@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  backend:
+    build: .
+    command: >
+      sh -c "python manage.py migrate --settings=ProductDevelopmentProject.settings.development &&
+             pytest &&
+             python manage.py runserver 0.0.0.0:8000 --settings=ProductDevelopmentProject.settings.development"
+    volumes:
+      - .:/usr/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
