@@ -15,7 +15,7 @@ In order to run tests you must ensure that your local backend deployment is runn
 The test will navigate through all pages, making sure the APIs are returning valid responses and the UI components are correctly loaded. 
 
 
-Install dependencies and Nightwatch
+Install dependencies and run Nightwatch
 ```
 $ npm install
 $ npm run e2e
