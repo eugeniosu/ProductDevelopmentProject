@@ -44,7 +44,9 @@ Replace the key values in `zappa_settings.json` with the OutputValues from AWS r
 
 
 Make sure  `zappa_settings.json` file is similar to this one:
+
 ![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/zappaconf.jpg?raw=true)
+
 
 
 Do the initial deployment

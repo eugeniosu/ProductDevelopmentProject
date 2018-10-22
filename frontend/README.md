@@ -58,6 +58,7 @@ Deploy the frontend
 $ npm run deploy-prod
 ```
 After this step, S3 bucket should be hosting the website.
+
 Finally, we have to go to the browser and paste the url returned by  AWS OutputKey: `CloudfrontEndpoint`
 
 ### Todos

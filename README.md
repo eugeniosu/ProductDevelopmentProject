@@ -71,6 +71,7 @@ Edit `cloudformation.yml` file and set the next parameters:
 * [DBPassword] - Password for accessing the database 
 
 `cloudformation.yml` file should like this:
+
 ![Alt text](https://github.com/eugeniosu/ProductDevelopmentProject/blob/master/readme-images/cloudformationconf.jpg?raw=true)
 
 Install `aws-cli`:
