@@ -2,7 +2,7 @@ ProductDevelopmentProject
 ==============================
 ProductDevelopmentProject is a solution that allows insurance companies to define their own custom model. 
 
-It's composed of two main parts: backend and frontend. They are independent each other and they integrated via REST API's. 
+It's composed of two main parts: backend and frontend. They are independent each other and they are integrated via REST API's. 
 
 
 Technologies 
