@@ -2,6 +2,26 @@ Frontend
 ===============================
 Make sure you are in `/frontend` directory.
 
+Local Deployment
+----------
+
+Execute docker compose.	
+```
+$ docker-compose up --build
+```
+
+Tests
+----------
+In order to run tests you must ensure that your local backend deployment is running.
+The test will navigate through all pages, making sure that the APIs are returning valid responses and the UI components are correctly loaded. 
+
+
+Start selenium server
+```
+$ npm run e2e
+```
+
+
 Configuration
 ----------
 
@@ -29,13 +49,6 @@ Modify the file `config/prod.env.js` and put API_GATEWAY retrieved from the back
 Install dependencies
 ```
 $ npm install
-```
-
-Tests
-----------
-Start selenium server
-```
-$ npm run e2e
 ```
 
 Deployment

@@ -7,13 +7,17 @@ It's composed of two main parts: backend and frontend. They are independent each
 
 Technologies 
 ----------
+For both local deployments we will use [Docker] containers
+
 Backend:
+* [pytest] - The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries.
 * [Django Rest] - Django REST framework is a powerful and flexible toolkit for building Web APIs.
 * [PostgreSQL] - PostgreSQL is a powerful, open source object-relational database system.
 * [Psycopg] - Psycopg is the most popular PostgreSQL adapter for the Python programming language
 * [Zappa] - Zappa makes it super easy to build and deploy server-less, event-driven Python applications on AWS Lambda + API Gateway.
 
 Frontend:
+*  [Nightwatch] - Write efficient and straightforward end-to-end tests in Node.js which run against a Selenium/WebDriver server.
 *  [vue.js] - A progressive, incrementally-adoptable JavaScript framework for building UI on the web.
 *  [node.js] - evented I/O for the backend.
 
@@ -24,9 +28,27 @@ Frontend:
    [Zappa]: <https://github.com/Miserlou/Zappa/>
    [node.js]: <http://nodejs.org>
    [Vue.js]: <https://vuejs.org/>
+   [Docker]: <https://www.docker.com/>
+   [Nightwatch]: <http://nightwatchjs.org/>
+   [pytest]: <https://docs.pytest.org/en/latest/>
 
 
-Configure Environment 
+Quick Deployment 
+----------
+You can setup a local environment using Docker if you are eager to see the application in action. 
+
+Start the backend.	
+```
+$ docker-compose -f backend/docker-compose.yml up --build
+```
+
+Execute docker compose.	
+```
+$ docker-compose -f frontend/docker-compose.yml up --build
+```
+
+
+Configure Production Environment in AWS
 ----------
 Create a virtualenviroment.
 ```
@@ -37,8 +59,8 @@ Active the Environment
 $ source env/bin/activate
 ```
 
-Infrastructure Creation.
-----------
+# Infrastructure Creation.
+
 This application runs on Amazon Web Services (AWS). Consequently, a CloudFormation yaml file is provided to generate all the resources needed.
 
 Edit `cloudformation.yml` file and set the next parameters:
@@ -63,8 +85,8 @@ Execute the yaml file using `aws-cli`(This process is going to take several minu
 $ aws cloudformation create-stack --stack-name ProductDevelopmentStack --template-body file://cloudformation.yml
 ```
 
-Getting AWS OutputKeys.
-----------
+# Getting AWS OutputKeys.
+
 All the resources needed to make this project run were generated in the previous step.
 Run the next command to find out OutputValues and save them in a safe place.
 ```

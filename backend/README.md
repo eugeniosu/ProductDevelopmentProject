@@ -1,26 +1,36 @@
 Backend
 ===============================
-At this stage, the infrastructure and resources should be created in AWS. We need to use the OutputKeys obtained by cloudformation script.
+Make sure you are in `/backend` directory
 
-Make sure you are in `/backend` directory and  virtualenv is activated.
+Local Deployment
+----------
+The local deployment is really easy. You just need to have Docker and Docker compose installed in your machine
+
+Execute docker compose.	
+```
+$ docker-compose up --build
+```
+
+*This step is mandatory to run tests locally in the frontend.
 
 Tests
 ----------
-Since the database was created in a private subnet, it's not possible to run test against it. 
-We need to have a reachable database and configure a dev environment to run both model and view tests. 
-
-First task is to modify the file 'ProductDevelopmentProject/settings/production.py' with your own database. 
+We will be using docker to mount a PostgreSQL database and run tests against it. Keep in mind that production database is in a private subnet and it cannot be accessed outside of the VPN.
 
 Run Tests	
 ```
-./manage.py test --settings=ProductDevelopmentProject.settings.development
+$ docker-compose run backend pytest
 ```
 
-Initial Deployment
+Initial Production Deployment
 ----------
+At this stage, the infrastructure and resources should have been created in AWS. We need to use the OutputValues obtained by cloudformation script.
 
-Install the requirements.
+You also need to activate virtualenv.
+
+Activate virtualenv and install the requirements.
 ```
+$ source  ../env/bin/activate
 $ pip install -r requirements/requirementsProd.txt
 ```
 
@@ -44,7 +54,7 @@ $ zappa deploy prod
 ```
 Zappa will automatically create an AWS API gateway and will provide an URL that will  appear at the end of the script. Copy and save this URL. It is required for the next step and for setting up the frontend. We will call it API_GATEWAY.
 
-Final Deployment
+Final Production Deployment
 ----------
 
 Edit the file `ProductDevelopmentProject/settings/production.py` with the next values:
@@ -67,3 +77,6 @@ Just execute the next two commands, and the backend configuration will be comple
 $ zappa update prod
 $ zappa manage prod migrate
 ```
+
+### Todos
+ - Dockerize zappa
