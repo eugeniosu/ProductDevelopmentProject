@@ -42,14 +42,14 @@ Start the backend.
 $ docker-compose -f backend/docker-compose.yml up --build
 ```
 
-Execute docker compose.	
+Start the frontend.	
 ```
 $ docker-compose -f frontend/docker-compose.yml up --build
 ```
 
 
-Configure Production Environment in AWS
-----------
+# Configure Production Environment in AWS
+
 Create a virtualenviroment.
 ```
 $ virtualenv env -p python3
@@ -59,13 +59,14 @@ Active the Environment
 $ source env/bin/activate
 ```
 
-# Infrastructure Creation.
+Infrastructure Creation.
+----------
 
 This application runs on Amazon Web Services (AWS). Consequently, a CloudFormation yaml file is provided to generate all the resources needed.
 
 Edit `cloudformation.yml` file and set the next parameters:
 * [EnvironmentName] -  An environment name that will be prefixed to resource names
-* [DBName] - 
+* [DBName] - Database name
 * [DBUsername] - User for accessing the database
 * [DBPassword] - Password for accessing the database 
 
@@ -85,7 +86,8 @@ Execute the yaml file using `aws-cli`(This process is going to take several minu
 $ aws cloudformation create-stack --stack-name ProductDevelopmentStack --template-body file://cloudformation.yml
 ```
 
-# Getting AWS OutputKeys.
+Getting AWS OutputKeys.
+----------
 
 All the resources needed to make this project run were generated in the previous step.
 Run the next command to find out OutputValues and save them in a safe place.
