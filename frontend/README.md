@@ -13,17 +13,16 @@ $ docker-compose up --build
 Tests
 ----------
 In order to run tests you must ensure that your local backend deployment is running.
-The test will navigate through all pages, making sure that the APIs are returning valid responses and the UI components are correctly loaded. 
+The test will navigate through all pages, making sure the APIs are returning valid responses and the UI components are correctly loaded. 
 
 
 Start selenium server
 ```
 $ npm run e2e
 ```
+* Java is required
 
-
-Configuration
-----------
+# Production Configuration
 
 Edit the config section in  `package.json` and replace the following value with right  AWS outputkey:
 
