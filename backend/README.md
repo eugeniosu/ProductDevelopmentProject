@@ -13,8 +13,7 @@ $ docker-compose up --build
 
 *This step is mandatory to run tests locally in the frontend.
 
-Tests
-----------
+# Tests
 We will be using docker to mount a PostgreSQL database and run tests against it. Keep in mind that production database is in a private subnet and it cannot be accessed outside of the VPN.
 
 Run Tests	

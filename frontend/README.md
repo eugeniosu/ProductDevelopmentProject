@@ -10,17 +10,17 @@ Execute docker compose.
 $ docker-compose up --build
 ```
 
-Tests
-----------
+# Tests
 In order to run tests you must ensure that your local backend deployment is running.
 The test will navigate through all pages, making sure the APIs are returning valid responses and the UI components are correctly loaded. 
 
 
-Start selenium server
+Install dependencies and Nightwatch
 ```
+$ npm install
 $ npm run e2e
 ```
-* Java is required
+* Java is required to start selenium server
 
 # Production Configuration
 
