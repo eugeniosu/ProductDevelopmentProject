@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <router-link class="nav-item" to="/">
-            <a class="btn btn-primary active" href="/">Risks</a>
+              <a id="Risks" class="btn btn-primary active" href="/">Risks</a>
           </router-link>
           <router-link class="nav-item" to="/risktype-list">
-            <a class="btn btn-primary active">Risk Types</a>
+            <a id="RiskTypes" class="btn btn-primary active">Risk Types</a>
           </router-link>
           <router-link class="nav-item" to="/field-list">
-            <a class="btn btn-primary active" href="/">Fields</a>
+            <a id="Fields" class="btn btn-primary active" href="/">Fields</a>
           </router-link>
         </ul>
       </div>

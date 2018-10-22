@@ -6,7 +6,7 @@
 </div>
 
 <router-link to="/field-create">
-  <a class="btn btn-primary active">Create Field</a>
+  <a id="CreateField" class="btn btn-primary active">Create Field</a>
 </router-link>
 <Loading :loading="loading"></Loading>
 <table class="table table-bordered table-hover">

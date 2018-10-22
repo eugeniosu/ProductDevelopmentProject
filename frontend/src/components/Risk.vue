@@ -1,64 +1,64 @@
-   <template>
-<div>
-<div class="row">
-  <div class="col-sm-6"><h4>Risks</h4></div>
-  <div class="col-sm-6"><h2 class="text-right text-warning">Eugenio Suarez.</h2></div>
-</div>
+<template>
+  <div>
+    <div class="row">
+      <div class="col-sm-6"><h4>Risks</h4></div>
+      <div class="col-sm-6"><h2 class="text-right text-warning">Eugenio Suarez.</h2></div>
+    </div>
 
-<router-link  to="/risk-create">
-  <a class="btn btn-primary active">Create Risk</a>
-</router-link>
-<Loading :loading="loading"></Loading>
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>RiskType</th>
-      <th>Created</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="risk in risks" v-bind:key="risk.pk" @click="selectRisk(risk)">
-      <th>{{risk.pk}}</th>
-      <th>{{risk.name}}</th>
-      <th>{{risk.description}}</th>
-      <th>{{risk.risk_type}}</th>
-      <th>{{risk.created}}</th>
-      <td>
-        <router-link :to="'/risk-update/' + risk.pk">
-            <a class="btn btn-primary active"> &#9998; </a>
-          </router-link>
-        <button class="btn btn-danger" @click="deleteRisk(risk)"> X</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div>
-<ul class="list-horizontal">
-  <li><button class="btn btn-secondary" @click="getPreviousPage()">Previous</button></li>
-  <li v-for="page in pages" v-bind:key="page.pageNumber">
-    <a class="btn btn-secondary" @click="getPage(page.link)">{{ page.pageNumber }}</a>
-  </li>
-  <li><button class="btn btn-secondary" @click="getNextPage()">Next</button></li>
-</ul>
-</div>
-<div class="card text-center" v-if="selectedRisk">
-  <div class="card-header">
-    #{{selectedRisk.pk}} -- {{selectedRisk.name}}
+    <router-link  to="/risk-create">
+      <a id="CreateRisk" class="btn btn-primary active">Create Risk</a>
+    </router-link>
+    <Loading :loading="loading"></Loading>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>RiskType</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="risk in risks" v-bind:key="risk.pk" @click="selectRisk(risk)">
+          <th>{{risk.pk}}</th>
+          <th>{{risk.name}}</th>
+          <th>{{risk.description}}</th>
+          <th>{{risk.risk_type}}</th>
+          <th>{{risk.created}}</th>
+          <td>
+            <router-link :to="'/risk-update/' + risk.pk">
+                <a class="btn btn-primary active"> &#9998; </a>
+              </router-link>
+            <button class="btn btn-danger" @click="deleteRisk(risk)"> X</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+    <ul class="list-horizontal">
+      <li><button class="btn btn-secondary" @click="getPreviousPage()">Previous</button></li>
+      <li v-for="page in pages" v-bind:key="page.pageNumber">
+        <a class="btn btn-secondary" @click="getPage(page.link)">{{ page.pageNumber }}</a>
+      </li>
+      <li><button class="btn btn-secondary" @click="getNextPage()">Next</button></li>
+    </ul>
+    </div>
+    <div class="card text-center" v-if="selectedRisk">
+      <div class="card-header">
+        #{{selectedRisk.pk}} -- {{selectedRisk.name}}
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">{{selectedRisk.name}}</h4>
+        <p class="card-text">
+        {{selectedRisk.description}}
+        </p>
+        <a class="btn btn-primary" v-bind:href="'/risk-update/' + selectedRisk.pk"> &#9998; </a>
+        <button class="btn btn-danger" @click="deleteRisk(selectedRisk)"> X</button>
+      </div>
+    </div>
   </div>
-  <div class="card-block">
-    <h4 class="card-title">{{selectedRisk.name}}</h4>
-    <p class="card-text">
-    {{selectedRisk.description}}
-    </p>
-    <a class="btn btn-primary" v-bind:href="'/risk-update/' + selectedRisk.pk"> &#9998; </a>
-    <button class="btn btn-danger" @click="deleteRisk(selectedRisk)"> X</button>
-  </div>
-</div>
-</div>
 </template>
 <script>
 /* eslint-disable */

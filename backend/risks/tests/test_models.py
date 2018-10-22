@@ -1,7 +1,9 @@
 from django.test import TestCase
 from risks.models import Field, Risk_Type, Risk, Field_Risk
+import pytest
 
 
+@pytest.mark.django_db
 class ModelTest(TestCase):
     """ Test all models and its relations """
 

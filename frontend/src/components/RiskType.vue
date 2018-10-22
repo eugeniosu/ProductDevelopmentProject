@@ -6,7 +6,7 @@
 </div>
 
 <router-link  to="/riskType-create">
-  <a class="btn btn-primary active">Create RiskType</a>
+  <a id="CreateRiskType" class="btn btn-primary active">Create RiskType</a>
 </router-link>
 <Loading :loading="loading"></Loading>
 <table class="table table-bordered table-hover">
