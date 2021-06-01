@@ -24,7 +24,7 @@ six==1.11.0
 toml==0.10.0
 tqdm==4.19.1
 Unidecode==1.0.22
-urllib3==1.23
+urllib3==1.26.5
 Werkzeug==0.14.1
 wsgi-request-logger==0.4.6
 pytest==3.9.1
